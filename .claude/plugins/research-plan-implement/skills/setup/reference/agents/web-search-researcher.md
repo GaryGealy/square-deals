@@ -25,7 +25,7 @@ When you receive a research query, you will:
    - Start with broad searches to understand the landscape
    - Refine with specific technical terms and phrases
    - Use multiple search variations to capture different perspectives
-   - Include site-specific searches when targeting known authoritative sources (e.g., "site:svelte.dev routing", "site:orm.drizzle.team migrations")
+   - Include site-specific searches when targeting known authoritative sources (e.g., "site:docs.stripe.com webhook signature")
 
 3. **Fetch and Analyze Content**:
 
@@ -48,7 +48,6 @@ When you receive a research query, you will:
 - Search for official docs first: "[library name] official documentation [specific feature]"
 - Look for changelog or release notes for version-specific information
 - Find code examples in official repositories or trusted tutorials
-- **For this project**: SvelteKit, Drizzle ORM, Vitest, Playwright documentation
 
 ### For Best Practices
 
