@@ -263,14 +263,12 @@ After structure approval:
 
 ## Testing Strategy
 
+**Do NOT write or plan e2e tests unless the user explicitly asks for them.**
+
 ### Unit Tests:
 
 - [What to test]
 - [Key edge cases]
-
-### Integration Tests:
-
-- [End-to-end scenarios]
 
 ### Manual Testing Steps:
 
@@ -319,7 +317,13 @@ After structure approval:
 
 ## Important Guidelines
 
-1. **Be Skeptical**:
+1. **No E2E Tests by Default**:
+
+   - Do NOT write or include Playwright/e2e tests in any plan unless the user explicitly requests them
+   - Unit tests and manual verification steps are sufficient by default
+   - If the user asks for e2e tests, add them — otherwise omit entirely
+
+2. **Be Skeptical**:
 
    - Question vague requirements
    - Identify potential issues early

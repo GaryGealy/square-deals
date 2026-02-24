@@ -49,7 +49,7 @@ npm install sveltekit-superforms zod valibot
 
 echo ""
 echo "Installing Tailwind CSS..."
-npm install -D tailwindcss @tailwindcss/vite
+npm install -D tailwindcss @tailwindcss/vite @tailwindcss/forms @tailwindcss/typography
 
 echo ""
 echo "Installing database (Drizzle + SQLite)..."
@@ -80,6 +80,15 @@ npm install -D tsx
 echo ""
 echo "Installing Playwright browsers..."
 npx playwright install chromium
+
+echo ""
+echo "Copying shadcn-svelte config..."
+cp "$ROOT_DIR/scripts/components.json" "$APP_DIR/components.json"
+cp "$ROOT_DIR/scripts/shadcn-base.css" "$APP_DIR/src/app.css"
+
+echo ""
+echo "Adding shadcn-svelte components..."
+npx shadcn-svelte@latest add accordion badge button card checkbox dialog input label select separator skeleton switch tooltip --yes
 
 echo ""
 echo "Copying .env.example..."

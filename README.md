@@ -1,6 +1,6 @@
 # humanlayer-scaffolding
 
-A starting point for new projects using the HumanLayer Claude setup.
+A starting point for new projects using the HumanLayer Claude setup, pre-configured with SvelteKit, shadcn-svelte, Drizzle ORM, and Cloudflare deployment.
 
 ## Getting Started
 
@@ -22,6 +22,8 @@ A starting point for new projects using the HumanLayer Claude setup.
 
    The `scripts/` folder also includes:
    - `.env.example` — environment variable template (copied to `app/` by setup)
+   - `components.json` — shadcn-svelte config (copied to `app/` by setup)
+   - `shadcn-base.css` — shadcn CSS variables and Tailwind base styles (copied to `app/src/app.css`)
    - `workflows/ci.yml` — GitHub Actions CI pipeline (copied to `.github/workflows/`)
    - `workflows/deploy.yml` — GitHub Actions deploy pipeline (copied to `.github/workflows/`)
 

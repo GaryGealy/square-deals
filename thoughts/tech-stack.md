@@ -12,7 +12,7 @@ Run the scripts in `scripts/` to automate the setup. See below for what each pie
 |-------|-----------|
 | **Framework** | SvelteKit + Svelte 5 (TypeScript) |
 | **Styling** | Tailwind CSS 4 |
-| **UI Components** | Bits UI, Lucide Svelte |
+| **UI Components** | shadcn-svelte (new-york style) + Bits UI + Lucide Svelte |
 | **Forms** | Superforms + Formsnap + Zod |
 | **ORM** | Drizzle ORM |
 | **Database (local)** | SQLite via Better SQLite3 |
@@ -79,15 +79,39 @@ Svelte 5 uses the runes API (`$state`, `$derived`, `$effect`) instead of the old
 
 ### Tailwind CSS 4
 
-Tailwind is configured via the Vite plugin — no `tailwind.config.ts` needed for basic usage. Import in `src/app.css`:
+Tailwind is configured via the Vite plugin. The base styles, CSS custom properties (design tokens), and shadcn-svelte theme variables all live in `src/app.css` (copied from `scripts/shadcn-base.css` during setup).
 
-```css
-@import "tailwindcss";
+### shadcn-svelte + Bits UI + Lucide
+
+[shadcn-svelte](https://shadcn-svelte.com) provides pre-built, styled UI components using the **new-york** style and a **slate** base color. Components are copied directly into `src/lib/components/ui/` via the shadcn CLI — they're your code, not a dependency.
+
+**Bits UI** powers the interactive primitives (Dialog, Select, Accordion, etc.) underneath shadcn-svelte. **Lucide** provides icons.
+
+**Components installed by default:**
+
+| Component | Type |
+|-----------|------|
+| Accordion | Interactive (Bits UI) |
+| Badge | Styling only |
+| Button | Styling only |
+| Card | Styling only |
+| Checkbox | Interactive (Bits UI) |
+| Dialog | Interactive (Bits UI) |
+| Input | Styling only |
+| Label | Interactive (Bits UI) |
+| Select | Interactive (Bits UI) |
+| Separator | Interactive (Bits UI) |
+| Skeleton | Styling only |
+| Switch | Interactive (Bits UI) |
+| Tooltip | Interactive (Bits UI) |
+
+To add more components after setup:
+```bash
+cd app
+npx shadcn-svelte@latest add <component-name>
 ```
 
-### Bits UI + Lucide
-
-Bits UI provides unstyled, accessible headless components. Lucide provides icons. Both are imported directly in Svelte components.
+The shadcn config lives in `app/components.json`.
 
 ### Forms: Superforms + Formsnap + Zod
 
