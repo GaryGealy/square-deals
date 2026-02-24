@@ -79,7 +79,7 @@ npm install -D tsx
 
 echo ""
 echo "Installing Playwright browsers..."
-npx playwright install chromium
+npx playwright install --with-deps chromium
 
 echo ""
 echo "Copying shadcn-svelte config..."
@@ -99,7 +99,12 @@ echo "Copying GitHub Actions workflows..."
 mkdir -p "$ROOT_DIR/.github/workflows"
 cp "$ROOT_DIR/scripts/workflows/ci.yml" "$ROOT_DIR/.github/workflows/ci.yml"
 cp "$ROOT_DIR/scripts/workflows/deploy.yml" "$ROOT_DIR/.github/workflows/deploy.yml"
-echo "Remember to update YOUR_DB_NAME and YOUR_PROJECT_NAME in .github/workflows/deploy.yml"
+echo "deploy.yml placeholders will be filled in by scripts/setup-cloudflare.sh"
+
+echo ""
+echo "Running post-setup verification..."
+npm run check && echo "Type checking passed" || echo "Warning: type checking failed — run 'npm run check' after setup-cloudflare.sh"
+npm run lint && echo "Linting passed" || echo "Warning: linting failed — run 'npm run lint' to inspect"
 
 echo ""
 echo "=============================="

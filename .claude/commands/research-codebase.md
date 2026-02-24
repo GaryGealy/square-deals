@@ -115,7 +115,7 @@ Then wait for the user's research query.
      date: [Current date and time with timezone in ISO format]
      git_commit: [Current commit hash]
      branch: [Current branch name]
-     repository: GaryGealy/dealops
+     repository: [owner/repo]
      topic: "[User's Question/Topic]"
      ---
 

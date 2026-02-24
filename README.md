@@ -13,6 +13,8 @@ A starting point for new projects using the HumanLayer Claude setup, pre-configu
    ```
 
    > **Requirements:** Node.js 20+ and a [Cloudflare account](https://cloudflare.com) (free tier is fine)
+   >
+   > **Windows users:** The setup scripts require a bash shell. Use [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) or Git Bash.
 
 3. **Run the setup scripts** to scaffold the app, install dependencies, and configure Cloudflare:
    ```bash
