@@ -82,6 +82,10 @@ echo "Installing Playwright browsers..."
 npx playwright install chromium
 
 echo ""
+echo "Copying .env.example..."
+cp "$ROOT_DIR/scripts/.env.example" "$APP_DIR/.env.example"
+
+echo ""
 echo "=============================="
 echo " Setup complete!"
 echo "=============================="
