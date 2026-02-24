@@ -86,6 +86,13 @@ echo "Copying .env.example..."
 cp "$ROOT_DIR/scripts/.env.example" "$APP_DIR/.env.example"
 
 echo ""
+echo "Copying GitHub Actions workflows..."
+mkdir -p "$ROOT_DIR/.github/workflows"
+cp "$ROOT_DIR/scripts/workflows/ci.yml" "$ROOT_DIR/.github/workflows/ci.yml"
+cp "$ROOT_DIR/scripts/workflows/deploy.yml" "$ROOT_DIR/.github/workflows/deploy.yml"
+echo "Remember to update YOUR_DB_NAME and YOUR_PROJECT_NAME in .github/workflows/deploy.yml"
+
+echo ""
 echo "=============================="
 echo " Setup complete!"
 echo "=============================="
