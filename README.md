@@ -12,10 +12,18 @@ A starting point for new projects using the HumanLayer Claude setup.
    cd <your-new-repo>
    ```
 
-3. **Init your tech stack**, for example if using Svelte:
+3. **Run the setup scripts** to scaffold the app, install dependencies, and configure Cloudflare:
    ```bash
-   npm create svelte@latest .
+   bash scripts/setup-app.sh
+   bash scripts/setup-cloudflare.sh
    ```
+
+   The `scripts/` folder also includes:
+   - `.env.example` — environment variable template (copied to `app/` by setup)
+   - `workflows/ci.yml` — GitHub Actions CI pipeline (copied to `.github/workflows/`)
+   - `workflows/deploy.yml` — GitHub Actions deploy pipeline (copied to `.github/workflows/`)
+
+   See [`thoughts/tech-stack.md`](thoughts/tech-stack.md) for the full tech stack, setup details, CI/CD pipeline, and Cloudflare infrastructure setup.
 
 4. **Add your design specs** — create markdown files in the `thoughts/` folder describing what you want to build
 
