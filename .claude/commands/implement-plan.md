@@ -48,9 +48,9 @@ If you encounter a mismatch:
 
 After implementing a phase:
 
+- **Do NOT run e2e tests unless they are explicitly listed in the plan's success criteria.**
 - Run the success criteria checks:
   - `npm run test:unit` - Unit tests
-  - `npm run test:e2e` - End-to-end tests (if applicable)
   - `npm run lint` - Linting
   - `npm run check` - Type checking
   - `npm run build` - Build verification
