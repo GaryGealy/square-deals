@@ -12,6 +12,8 @@ A starting point for new projects using the HumanLayer Claude setup.
    cd <your-new-repo>
    ```
 
+   > **Requirements:** Node.js 20+ and a [Cloudflare account](https://cloudflare.com) (free tier is fine)
+
 3. **Run the setup scripts** to scaffold the app, install dependencies, and configure Cloudflare:
    ```bash
    bash scripts/setup-app.sh
@@ -28,6 +30,18 @@ A starting point for new projects using the HumanLayer Claude setup.
 4. **Add your design specs** — create markdown files in the `thoughts/` folder describing what you want to build
 
 5. **Start building** — the `.claude/` folder is already set up and ready to use
+
+## Branch Strategy
+
+| Branch | Purpose |
+|--------|---------|
+| `main` | Active development — merge PRs here |
+| `cloudflare` | Production deploys — push `main` to this branch to deploy |
+
+To deploy to production:
+```bash
+git push origin main:cloudflare
+```
 
 ## Global Plugins
 

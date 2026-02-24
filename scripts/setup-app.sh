@@ -63,7 +63,7 @@ npm install -D @types/bcryptjs
 
 echo ""
 echo "Installing testing tools..."
-npm install -D @playwright/test vitest @vitest/browser playwright-chromium @axe-core/playwright @faker-js/faker vitest-browser-svelte @vitest/browser
+npm install -D @playwright/test vitest @vitest/browser playwright-chromium @axe-core/playwright @faker-js/faker vitest-browser-svelte
 
 echo ""
 echo "Installing code quality tools..."

@@ -52,6 +52,8 @@ if [ -z "$DB_ID" ]; then
   read -p "Please enter the database_id manually: " DB_ID
 fi
 
+DEPLOY_WORKFLOW="$ROOT_DIR/.github/workflows/deploy.yml"
+
 echo ""
 echo "Writing wrangler.toml..."
 
@@ -66,6 +68,19 @@ binding = "DB"
 database_name = "$DB_NAME"
 database_id = "$DB_ID"
 EOF
+
+# Update deploy.yml placeholders if the file exists
+if [ -f "$DEPLOY_WORKFLOW" ]; then
+  echo ""
+  echo "Updating .github/workflows/deploy.yml with app and DB names..."
+  sed -i.bak "s/YOUR_DB_NAME/$DB_NAME/g" "$DEPLOY_WORKFLOW"
+  sed -i.bak "s/YOUR_PROJECT_NAME/$APP_NAME/g" "$DEPLOY_WORKFLOW"
+  rm -f "$DEPLOY_WORKFLOW.bak"
+else
+  echo ""
+  echo "Note: .github/workflows/deploy.yml not found — run scripts/setup-app.sh first to copy it."
+  echo "Then manually replace YOUR_DB_NAME with '$DB_NAME' and YOUR_PROJECT_NAME with '$APP_NAME'."
+fi
 
 echo ""
 echo "================================"
