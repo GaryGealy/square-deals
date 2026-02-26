@@ -125,7 +125,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ```
 
-Prepend the new release section immediately after the `## [Unreleased]` line
+Prepend the new release section after the `## [Unreleased]` line, separated by a blank line
 (or at the top of the file if no Unreleased section exists):
 
 ```markdown
@@ -184,6 +184,14 @@ For `## [X.Y.Z] - YYYY-MM-DD`:
 - Replace spaces with `-` → `xyz---yyyy-mm-dd`
 - Result anchor: `#xyz---yyyy-mm-dd`
 
+**Concrete example** — for version `1.2.3` released on `2026-02-26`:
+- Heading: `## [1.2.3] - 2026-02-26`
+- Remove `[`, `]`, `.`: `123 - 2026-02-26`
+- Replace spaces with `-`: `123---2026-02-26`
+- Final anchor: `#123---2026-02-26`
+
+Note: dots in the version number are stripped (not replaced with hyphens).
+
 **Step 3.7 — Create PR**
 ```bash
 REPO=$(gh repo view --json nameWithOwner --jq .nameWithOwner)
@@ -240,7 +248,7 @@ Save to `/tmp/release-notes-vX.Y.Z.md`.
 
 ```bash
 git show origin/main:CHANGELOG.md | \
-  awk '/^## \[X\.Y\.Z\]/{found=1; next} found && /^## /{exit} found{print}' \
+  awk 'found && /^## /{exit} /^## \[X\.Y\.Z\]/{found=1} found{print}' \
   > /tmp/release-notes-vX.Y.Z.md
 ```
 
