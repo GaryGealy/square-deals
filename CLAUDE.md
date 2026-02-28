@@ -12,3 +12,12 @@
 
 - **Pre-PR checks**: Run type checks, lint, and tests before creating PRs
 - **Reproducible installs**: Use `npm ci` instead of `npm install` to match CI environment
+
+## Project Structure
+
+- **All dev commands run from `app/`**: `cd app && npm run dev|check|lint|build`
+- **Dev server**: `http://localhost:5173`
+- **Svelte 5 runes**: Use `$state`, `$derived`, `$effect` — not older reactive stores or `$:` syntax
+- **shadcn-svelte components**: Install with `npx shadcn-svelte@latest add <component>` from `app/`
+- **Specs**: `thoughts/specs/` for design/feature specs
+- **Plans**: `docs/plans/` for implementation plans
