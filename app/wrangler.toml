@@ -1,0 +1,9 @@
+name = "square-deal"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".svelte-kit/cloudflare"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "square-deal-db"
+database_id = "17a6f850-461b-4af8-8ca5-684ce0073728"
