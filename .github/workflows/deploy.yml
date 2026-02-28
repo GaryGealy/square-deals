@@ -52,7 +52,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: "app"
-          command: pages deploy .svelte-kit/cloudflare --project-name=square-deal
+          command: pages deploy .svelte-kit/cloudflare --project-name=square-deals
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Output deployment URLs
