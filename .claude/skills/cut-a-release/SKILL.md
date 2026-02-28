@@ -248,7 +248,7 @@ Save to `/tmp/release-notes-vX.Y.Z.md`.
 
 ```bash
 git show origin/main:CHANGELOG.md | \
-  awk 'found && /^## /{exit} /^## \[X\.Y\.Z\]/{found=1} found{print}' \
+  awk 'found && /^## /{exit} /^## \[X\.Y\.Z\]/{found=1} found && /^\[/{next} found{print}' \
   > /tmp/release-notes-vX.Y.Z.md
 ```
 
