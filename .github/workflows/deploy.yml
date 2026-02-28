@@ -35,16 +35,16 @@ jobs:
         working-directory: app
         run: npm run build
 
-      # Replace YOUR_DB_NAME with the D1 database name from wrangler.toml
+      # Replace square-deal-db with the D1 database name from wrangler.toml
       - name: Run D1 migrations
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: "app"
-          command: d1 migrations apply YOUR_DB_NAME --remote
+          command: d1 migrations apply square-deal-db --remote
 
-      # Replace YOUR_PROJECT_NAME with your Cloudflare Pages project name
+      # Replace square-deal with your Cloudflare Pages project name
       - name: Deploy to Cloudflare Pages
         id: deploy
         uses: cloudflare/wrangler-action@v3
@@ -52,7 +52,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: "app"
-          command: pages deploy .svelte-kit/cloudflare --project-name=YOUR_PROJECT_NAME
+          command: pages deploy .svelte-kit/cloudflare --project-name=square-deal
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Output deployment URLs
