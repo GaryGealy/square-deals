@@ -41,7 +41,7 @@ cd "$APP_DIR"
 
 echo ""
 echo "Installing UI libraries..."
-npm install bits-ui lucide-svelte svelte-sonner formsnap mode-watcher clsx tailwind-merge tailwind-variants @internationalized/date
+npm install bits-ui @lucide/svelte lucide-svelte svelte-sonner formsnap mode-watcher clsx tailwind-merge tailwind-variants @internationalized/date
 
 echo ""
 echo "Installing form & validation..."
@@ -85,6 +85,26 @@ echo ""
 echo "Copying shadcn-svelte config..."
 cp "$ROOT_DIR/scripts/components.json" "$APP_DIR/components.json"
 cp "$ROOT_DIR/scripts/shadcn-base.css" "$APP_DIR/src/app.css"
+
+echo ""
+echo "Creating $lib/utils.ts (required by shadcn-svelte components)..."
+mkdir -p "$APP_DIR/src/lib"
+cat > "$APP_DIR/src/lib/utils.ts" << 'EOF'
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+	return twMerge(clsx(inputs));
+}
+
+export type WithElementRef<T, E extends HTMLElement = HTMLElement> = T & {
+	ref?: E | null;
+};
+
+export type WithoutChild<T> = Omit<T, "child">;
+export type WithoutChildren<T> = Omit<T, "children">;
+export type WithoutChildrenOrChild<T> = Omit<T, "children" | "child">;
+EOF
 
 echo ""
 echo "Adding shadcn-svelte components..."
