@@ -20,4 +20,4 @@
 - **Svelte 5 runes**: Use `$state`, `$derived`, `$effect` — not older reactive stores or `$:` syntax
 - **shadcn-svelte components**: Install with `npx shadcn-svelte@latest add <component>` from `app/`
 - **Specs**: `thoughts/specs/` for design/feature specs
-- **Plans**: `docs/plans/` for implementation plans
+- **Plans**: `thoughts/plans/` for implementation plans
