@@ -215,8 +215,8 @@ cd app && npm run dev
 
 #### Automated Verification:
 
-- [ ] Type checking passes: `npm run check`
-- [ ] Linting passes: `npm run lint`
+- [x] Type checking passes: `npm run check`
+- [x] Linting passes: `npm run lint` (no lint script — check passes, build passes)
 
 #### Manual Verification:
 
