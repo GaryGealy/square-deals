@@ -1,5 +1,7 @@
 # SquareDeals Implementation Plan
 
+> **Status: Superseded.** This plan targeted a standalone vanilla JS `index.html`. The actual implementation uses SvelteKit + shadcn-svelte. See `thoughts/plans/2026-02-28-slider-calculator.md` for the implemented plan.
+
 > **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
 
 **Goal:** Build a single `index.html` page with three linked sliders (Price, Square Feet, Price Per Sq Foot) that maintain the relationship Price = SqFt × PricePerSqFt, with a mode button cycling which slider is the computed output.

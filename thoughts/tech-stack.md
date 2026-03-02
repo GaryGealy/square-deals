@@ -102,7 +102,10 @@ Tailwind is configured via the Vite plugin. The base styles, CSS custom properti
 | Select | Interactive (Bits UI) |
 | Separator | Interactive (Bits UI) |
 | Skeleton | Styling only |
+| Slider | Interactive (Bits UI) |
 | Switch | Interactive (Bits UI) |
+| Toggle | Interactive (Bits UI) |
+| Toggle Group | Interactive (Bits UI) |
 | Tooltip | Interactive (Bits UI) |
 
 To add more components after setup:
