@@ -216,20 +216,20 @@ cd app && npm run dev
 #### Automated Verification:
 
 - [x] Type checking passes: `npm run check`
-- [x] Linting passes: `npm run lint` (no lint script — check passes, build passes)
+- [x] Linting passes: `npm run lint`
 
 #### Manual Verification:
 
-- [ ] Page loads with "Price" toggle active and Price row showing "auto" badge at reduced opacity
-- [ ] Moving the SqFt slider updates the Price value
-- [ ] Moving the $/SqFt slider updates the Price value
-- [ ] Clicking "Sq Ft" toggle: SqFt row becomes auto, Price row becomes interactive
-- [ ] Moving Price or $/SqFt sliders updates SqFt value
-- [ ] Clicking "$/Sq Ft" toggle: $/SqFt row becomes auto
-- [ ] Moving Price or SqFt sliders updates $/SqFt value
-- [ ] Typing in a number input updates the corresponding slider position
-- [ ] Computed values stay within their min/max range
-- [ ] Computed row's slider and input are not interactive (pointer-events-none)
+- [x] Page loads with "Price" toggle active and Price row showing "auto" badge at reduced opacity
+- [x] Moving the SqFt slider updates the Price value
+- [x] Moving the $/SqFt slider updates the Price value
+- [x] Clicking "Sq Ft" toggle: SqFt row becomes auto, Price row becomes interactive
+- [x] Moving Price or $/SqFt sliders updates SqFt value
+- [x] Clicking "$/Sq Ft" toggle: $/SqFt row becomes auto
+- [x] Moving Price or SqFt sliders updates $/SqFt value
+- [x] Typing in a number input updates the corresponding slider position
+- [x] Computed values stay within their min/max range
+- [x] Computed row's slider and input are not interactive (pointer-events-none)
 
 **Implementation Note**: After completing this task and all automated verification passes, pause here for manual confirmation from the human that the manual testing was successful.
 
