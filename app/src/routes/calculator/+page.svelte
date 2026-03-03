@@ -6,7 +6,7 @@
 	import { Label } from '$lib/components/ui/label/index.js';
 	import { Badge } from '$lib/components/ui/badge/index.js';
 
-	type Mode = 'price' | 'sqft' | 'ppsf';
+	type Mode = 'price' | 'ppsf';
 
 	let mode: Mode = $state('price');
 	let price = $state(300000);
@@ -24,8 +24,6 @@
 	$effect(() => {
 		if (mode === 'price') {
 			price = roundTo(clamp(sqft * ppsf, 50000, 2000000), 1000);
-		} else if (mode === 'sqft') {
-			sqft = roundTo(clamp(price / Math.max(ppsf, 50), 200, 10000), 10);
 		} else {
 			ppsf = roundTo(clamp(price / Math.max(sqft, 200), 50, 1000), 1);
 		}
@@ -33,19 +31,16 @@
 
 	const sliders = [
 		{ key: 'price' as Mode, label: 'Price ($)', min: 50000, max: 2000000, step: 1000 },
-		{ key: 'sqft' as Mode, label: 'Square Feet', min: 200, max: 10000, step: 10 },
 		{ key: 'ppsf' as Mode, label: 'Price Per Sq Ft ($)', min: 50, max: 1000, step: 1 }
 	] as const;
 
 	function getValue(key: Mode): number {
 		if (key === 'price') return price;
-		if (key === 'sqft') return sqft;
 		return ppsf;
 	}
 
 	function setValue(key: Mode, val: number): void {
 		if (key === 'price') price = val;
-		else if (key === 'sqft') sqft = val;
 		else ppsf = val;
 	}
 </script>
@@ -61,12 +56,31 @@
 		<Label class="text-muted-foreground mb-2 block text-sm">Auto-compute:</Label>
 		<ToggleGroup.Root type="single" bind:value={mode} variant="outline">
 			<ToggleGroup.Item value="price" aria-label="Auto-compute price">Price</ToggleGroup.Item>
-			<ToggleGroup.Item value="sqft" aria-label="Auto-compute square feet">Sq Ft</ToggleGroup.Item>
 			<ToggleGroup.Item value="ppsf" aria-label="Auto-compute price per square foot"
 				>$/Sq Ft</ToggleGroup.Item
 			>
 		</ToggleGroup.Root>
 	</div>
+
+	<Card.Root class="mb-4">
+		<Card.Content class="pt-6">
+			<div class="mb-3">
+				<Label>Square Feet</Label>
+			</div>
+			<Input
+				type="number"
+				value={sqft}
+				oninput={(e) => {
+					const parsed = parseFloat(e.currentTarget.value);
+					if (!isNaN(parsed)) sqft = clamp(parsed, 200, 10000);
+				}}
+				min={200}
+				max={10000}
+				step={10}
+				class="w-32 text-right"
+			/>
+		</Card.Content>
+	</Card.Root>
 
 	{#each sliders as s (s.key)}
 		{@const isComputed = mode === s.key}
