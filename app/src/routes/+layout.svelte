@@ -14,7 +14,10 @@
 	<nav class="mx-auto flex max-w-4xl items-center gap-6 px-4 py-3">
 		<a href="/" class="font-semibold tracking-tight">SquareDeals</a>
 		{#each tools as tool}
-			<a href={tool.href} class="text-muted-foreground hover:text-foreground text-sm transition-colors">
+			<a
+				href={tool.href}
+				class="text-muted-foreground hover:text-foreground text-sm transition-colors"
+			>
 				{tool.name}
 			</a>
 		{/each}
