@@ -12,7 +12,10 @@
 
 <header class="border-b">
 	<nav class="mx-auto flex max-w-4xl items-center gap-6 px-4 py-3">
-		<a href="/" class="font-semibold tracking-tight">SquareDeals</a>
+		<a href="/" class="flex items-center gap-2 font-semibold tracking-tight">
+			<img src="/square-deals-logo.png" alt="SquareDeals logo" class="h-8 w-auto" />
+			SquareDeals
+		</a>
 		{#each tools as tool}
 			<a
 				href={tool.href}
