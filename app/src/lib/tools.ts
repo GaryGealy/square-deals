@@ -1,7 +1,9 @@
+import type { Pathname } from '$app/types';
+
 export interface Tool {
 	name: string;
 	description: string;
-	href: string;
+	href: Pathname;
 }
 
 export const tools: Tool[] = [

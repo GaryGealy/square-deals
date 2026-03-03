@@ -13,7 +13,7 @@
 	<p class="text-muted-foreground mb-8">Real estate tools to help you think clearly about price.</p>
 
 	<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-		{#each tools as tool}
+		{#each tools as tool (tool.href)}
 			<Card.Root>
 				<Card.Header>
 					<Card.Title>{tool.name}</Card.Title>
